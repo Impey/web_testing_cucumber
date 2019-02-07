@@ -19,3 +19,15 @@ end
 Then("I receive an error for not finding the account") do
   expect(@bbc_site.bbc_siginpage.read_error).to eq @bbc_site.bbc_siginpage.error
 end
+
+Given("I input username details") do
+  @bbc_site.bbc_siginpage.fill_in_username('apple1987@banna.com')
+end
+
+Given("I input a password that is too short") do
+  @bbc_site.bbc_siginpage.fill_in_password('pass')
+end
+
+Then("I receive an error saying the password is too short") do
+  expect(@bbc_site.bbc_siginpage.read_pass_error).to eq @bbc_site.bbc_siginpage.errorshortpass
+end
