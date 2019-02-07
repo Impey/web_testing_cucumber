@@ -11,5 +11,4 @@ class BbcSite
     Bbcsigninpage.new
   end
 
-
 end

@@ -4,6 +4,7 @@ require 'capybara/dsl'
 class Bbcsigninpage
   include Capybara::DSL
   attr_accessor :error, :errorshortpass, :erroruser, :erroremptypass, :numonlypass, :letteronlypass, :shortuser
+  
   #Page objects
   USERNAME = 'user-identifier-input'
   PASSWORD = 'password-input'

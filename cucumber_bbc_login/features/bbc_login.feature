@@ -48,5 +48,3 @@ Feature: BBC Login
     And I input a password
     When I try to login
     Then I receive an error saying the username is too short
-
-
