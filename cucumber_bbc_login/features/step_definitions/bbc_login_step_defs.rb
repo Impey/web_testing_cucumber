@@ -43,3 +43,31 @@ end
 Then("I receive an error saying the password field is empty") do
   expect(@bbc_site.bbc_siginpage.read_pass_error).to eq @bbc_site.bbc_siginpage.erroremptypass
 end
+
+Given("I input a password of only numbers") do
+  @bbc_site.bbc_siginpage.fill_in_password('1234567899')
+end
+
+Then("I receive an error saying the password field requires letters") do
+  expect(@bbc_site.bbc_siginpage.read_pass_error).to eq @bbc_site.bbc_siginpage.numonlypass
+end
+
+Given("I input a password of only letters") do
+  @bbc_site.bbc_siginpage.fill_in_password('jefjefjefjjefjef')
+end
+
+Then("I receive an error saying the password field requires numbers") do
+  expect(@bbc_site.bbc_siginpage.read_pass_error).to eq @bbc_site.bbc_siginpage.letteronlypass
+end
+
+Given("I input username that is too short") do
+  @bbc_site.bbc_siginpage.fill_in_username('t')
+end
+
+Given("I input a password") do
+  @bbc_site.bbc_siginpage.fill_in_password('hellomynamejeff23')
+end
+
+Then("I receive an error saying the username is too short") do
+  expect(@bbc_site.bbc_siginpage.read_user_error).to eq @bbc_site.bbc_siginpage.shortuser
+end

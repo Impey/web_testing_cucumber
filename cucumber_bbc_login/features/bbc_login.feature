@@ -28,4 +28,25 @@ Feature: BBC Login
     When I try to login
     Then I receive an error saying the password field is empty
 
+  Scenario: Input a number only password
+    Given I access the bbc login page
+    And I input username
+    And I input a password of only numbers
+    When I try to login
+    Then I receive an error saying the password field requires letters
+
+  Scenario: Input a letter only password
+    Given I access the bbc login page
+    And I input username
+    And I input a password of only letters
+    When I try to login
+    Then I receive an error saying the password field requires numbers
+
+  Scenario: Input username that is too short
+    Given I access the bbc login page
+    And I input username that is too short
+    And I input a password
+    When I try to login
+    Then I receive an error saying the username is too short
+
 

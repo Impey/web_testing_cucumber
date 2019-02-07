@@ -3,7 +3,7 @@ require 'capybara/dsl'
 
 class Bbcsigninpage
   include Capybara::DSL
-  attr_accessor :error, :errorshortpass, :erroruser, :erroremptypass
+  attr_accessor :error, :errorshortpass, :erroruser, :erroremptypass, :numonlypass, :letteronlypass, :shortuser
   #Page objects
   USERNAME = 'user-identifier-input'
   PASSWORD = 'password-input'
@@ -17,6 +17,9 @@ class Bbcsigninpage
     @errorshortpass = 'Sorry, that password is too short. It needs to be eight characters or more.'
     @erroruser = 'Usernames can only include... Letters, numbers and these characters: ?/|}{+=_-^~`%$#'
     @erroremptypass = "Something's missing. Please check and try again."
+    @numonlypass = "Sorry, that password isn't valid. Please include a letter."
+    @letteronlypass = "Sorry, that password isn't valid. Please include something that isn't a letter."
+    @shortuser = "Sorry, that username's too short. It needs to be at least two characters."
   end
   
   
