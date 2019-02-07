@@ -1,5 +1,6 @@
 require 'capybara/cucumber'
 require 'rspec'
+require_relative '../lib/bbc_site'
 
 
 RSpec.configure do |config|

@@ -1,19 +1,21 @@
 Given("I access the bbc login page") do
-  visit('http://www.bbc.co.uk')
-end
+  @bbc_site = BbcSite.new
+  @bbc_site.bbc_homepage.visit_homepage
+  @bbc_site.bbc_homepage.click_signin
+ end
 
-Given("I input incrrect username details") do
-  pending # Write code here that turns the phrase above into concrete actions
+Given("I input incorrect username details") do
+  @bbc_site.bbc_siginpage.fill_in_username('apple1987@banna.com')
 end
 
 Given("I input incorrect password details") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @bbc_site.bbc_siginpage.fill_in_password('password123')
 end
 
 When("I try to login") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @bbc_site.bbc_siginpage.click_sigin
 end
 
 Then("I receive an error for not finding the account") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(@bbc_site.bbc_siginpage.read_error).to eq @bbc_site.bbc_siginpage.error
 end
