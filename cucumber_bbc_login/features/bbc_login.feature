@@ -10,10 +10,22 @@ Feature: BBC Login
 
   Scenario: Input a password that is too short
     Given I access the bbc login page
-    And I input username details
+    And I input incorrect username details
     And I input a password that is too short
     When I try to login
     Then I receive an error saying the password is too short
 
+  Scenario: Input a username that includes incorrect character
+    Given I access the bbc login page
+    And I input wrong characters in username
+    And I input incorrect password details
+    When I try to login
+    Then I receive an error saying the username is incorrect
+
+  Scenario: Input a username without a password
+    Given I access the bbc login page
+    And I input username
+    When I try to login
+    Then I receive an error saying the password field is empty
 
 
